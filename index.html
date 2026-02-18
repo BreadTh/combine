@@ -37,6 +37,7 @@
 <script>const GAME_MODES = {};</script>
 <script src="recipes.js"></script>
 <script src="recipes2.js"></script>
+<script src="recipes3.js"></script>
 <script>
 // ════════════════════════════════════════
 // KEYBOARD MAP
@@ -106,8 +107,9 @@ function switchMode(modeId) {
     elapsed = 0;
   }
 
-  // Reset slot tracking so render rebuilds everything
-  for (let i = 0; i < GRID_SIZE; i++) prevSlotIds[i] = null;
+  // Reset slot tracking so render rebuilds everything (use sentinel, not null,
+  // because empty slots also have curId===null and would skip the update)
+  for (let i = 0; i < GRID_SIZE; i++) prevSlotIds[i] = '__force__';
 
   logEl.innerHTML = '';
   document.getElementById('win-overlay').classList.add('hidden');
