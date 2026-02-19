@@ -20,10 +20,16 @@ h1 {
   letter-spacing: 0.1em;
 }
 
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: calc(8px * var(--sw, 1));
+  margin-bottom: calc(4px * var(--sh, 1));
+}
+
 .mode-bar {
   display: flex;
   gap: calc(4px * var(--sw, 1));
-  margin-bottom: calc(4px * var(--sh, 1));
 }
 
 .mode-btn {
@@ -218,17 +224,18 @@ h1 {
 }
 
 #restart {
-  margin-top: calc(6px * var(--sh, 1));
-  padding: calc(4px * var(--sh, 1)) calc(16px * var(--sw, 1));
+  margin-left: auto;
+  padding: 0;
   background: none;
-  border: 1px solid #333;
-  color: #555;
-  border-radius: 4px;
+  border: none;
+  color: #804040;
   cursor: pointer;
-  font-size: calc(14px * var(--sh, 1));
+  font-size: calc(11px * var(--sh, 1));
+  text-decoration: none;
+  opacity: 0.7;
   flex-shrink: 0;
 }
-#restart:hover { border-color: #e94560; color: #e94560; }
+#restart:hover { color: #e94560; opacity: 1; }
 
 .timer-bar {
   display: flex;
@@ -299,8 +306,10 @@ h1 {
 
 .hints-panel {
   width: calc(270px * var(--sw, 1));
+  max-width: 30vw;
   max-height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   background: #16213e;
   border: 1px solid #0f3460;
   border-radius: 8px;
@@ -334,6 +343,7 @@ h1 {
   color: #8888aa;
   background: #1a1a2e;
   overflow: hidden;
+  min-width: 0;
 }
 
 .hint-row.craftable {
@@ -347,6 +357,8 @@ h1 {
   align-items: center;
   gap: calc(2px * var(--sw, 1));
   white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
 }
 
 .hint-item .item-icon {
@@ -355,6 +367,8 @@ h1 {
 
 .hint-item .hint-name {
   font-size: calc(13px * var(--sw, 1));
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hint-unknown {

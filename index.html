@@ -9,7 +9,10 @@
 <body>
 
 <h1>COMBINE</h1>
-<div class="mode-bar" id="mode-bar"></div>
+<div class="top-bar">
+  <div class="mode-bar" id="mode-bar"></div>
+  <button id="restart">&#8635; Reset</button>
+</div>
 <p class="instructions">Drag or press 0-8,a-z or arrow keys and space to combine. Backspace to undo.</p>
 <div class="timer-bar">
   <span id="timer">0:00</span>
@@ -23,7 +26,6 @@
   </div>
 </div>
 <div class="log" id="log"></div>
-<button id="restart">Start Over</button>
 <div id="win-overlay" class="win-overlay hidden">
   <div class="win-box">
     <div class="win-emoji" id="win-crown"></div>
@@ -35,9 +37,9 @@
 
 <script src="icon-data.js"></script>
 <script>const GAME_MODES = {};</script>
-<script src="recipes.js"></script>
-<script src="recipes2.js"></script>
-<script src="recipes3.js"></script>
+<script src="recipes6.js"></script>
+<script src="recipes8.js"></script>
+<script src="recipes5.js"></script>
 <script>
 // ════════════════════════════════════════
 // KEYBOARD MAP
@@ -62,8 +64,6 @@ let RECIPES = [];
 let START_ITEMS = [];
 let WIN_ITEM = '';
 let SAVE_VERSION = 0;
-let TOOL_UPGRADES = {};
-
 function saveKeyForMode(modeId) {
   return 'combine_save_' + modeId;
 }
@@ -77,7 +77,6 @@ function loadMode(modeId) {
   START_ITEMS = mode.startItems;
   WIN_ITEM = mode.winItem;
   SAVE_VERSION = mode.saveVersion;
-  TOOL_UPGRADES = mode.toolUpgrades || {};
   // Apply maxDur defaults
   for (const v of Object.values(ITEMS)) {
     if (!v.maxDur) v.maxDur = 1;

@@ -4,12 +4,6 @@ GAME_MODES.survival = {
   name: 'Survival',
   saveVersion: 2,
   winItem: 'crown',
-  toolUpgrades: {
-    knife: 'crude_knife',
-    axe: 'crude_axe',
-    hammer: 'crude_hammer',
-    pickaxe: 'crude_pick',
-  },
   items: {
     // Raw
     pebble:       { icon: 'lorc/rock', color: '#a0a0b8', name: 'Pebble' },
@@ -156,6 +150,29 @@ GAME_MODES.survival = {
     // ── Torch Actions (torch -1) ──
     { a: 'torch', b: 'tree', aCost: 1, bCost: 2, give: ['charcoal', 'charcoal', 'charcoal'] },
     { a: 'torch', b: 'bush', aCost: 1, bCost: 2, give: ['charcoal'] },
+
+    // ── Knife Gathering (knife -1) ──
+    { a: 'knife', b: 'grass', aCost: 1, give: ['seed'] },
+    { a: 'knife', b: 'bush', aCost: 1, bCost: 1, give: ['seed', 'twig', 'grass'] },
+    { a: 'knife', b: 'tree', aCost: 1, bCost: 1, give: ['stick', 'seed'] },
+    { a: 'knife', b: 'log', aCost: 1, give: ['stick', 'twine'] },
+
+    // ── Axe Gathering (axe -1) ──
+    { a: 'axe', b: 'tree', aCost: 1, bCost: 1, give: ['log', 'sapling'] },
+    { a: 'axe', b: 'log', aCost: 1, give: ['plank', 'plank'] },
+    { a: 'axe', b: 'bush', aCost: 1, bCost: 1, give: ['twig', 'twig', 'twig'] },
+    { a: 'axe', b: 'stick', aCost: 1, give: ['twig', 'twig'] },
+
+    // ── Pick Gathering (pickaxe -1) ──
+    { a: 'pickaxe', b: 'boulder', aCost: 1, bCost: 1, give: ['stone', 'ore'] },
+    { a: 'pickaxe', b: 'stone', aCost: 1, give: ['pebble', 'sand'] },
+    { a: 'pickaxe', b: 'sand', aCost: 1, give: ['clay'] },
+    { a: 'pickaxe', b: 'clay', aCost: 1, give: ['stone'] },
+
+    // ── Hammer Work (hammer -1) ──
+    { a: 'hammer', b: 'pebble', aCost: 1, give: ['sand', 'flint'] },
+    { a: 'hammer', b: 'stone', aCost: 1, give: ['pebble', 'pebble'] },
+    { a: 'hammer', b: 'plank', aCost: 1, give: ['stick', 'stick'] },
 
     // ── Assembly (both consumed) ──
     { a: 'handle', b: 'blade', give: ['knife'] },
